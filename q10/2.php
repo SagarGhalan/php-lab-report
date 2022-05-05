@@ -41,7 +41,7 @@ if(isset($_POST['mobile']))
 </form>
 <?php
     if(isset($_SESSION['mname'])){
-        echo"The amount is:".$_SESSION['bprice']+$_SESSION['mprice']."<br><br>";
+        echo"The amount is:".$_SESSION['mprice']."<br><br>";
     }
 ?>
 page:
