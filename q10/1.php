@@ -1,21 +1,21 @@
 <?php
     session_start();
-    if(isset($_POST['book']))
+    if(isset($_POST['submit']))
     {
         if($_POST['book'] =='java')
         {
             $_SESSION["bprice"]=100;
-            $_SESSION["bname"]=$_POST["book"];
+            $_SESSION["bname"]= 'java';
         }
         if($_POST['book'] =='cpp')
         {
             $_SESSION["bprice"]=120;
-            $_SESSION["bname"]=$_POST["book"];
+            $_SESSION["bname"]= 'cpp';
         }
         if($_POST['book'] == 'it')
         {
             $_SESSION["bprice"]=150;
-            $_SESSION["bname"]=$_POST["book"];
+            $_SESSION["bname"]= 'it';
         }
     }
 ?>
