@@ -1,6 +1,6 @@
 <?php
    if(isset($_FILES['file'])){
-      $errors= array();
+      $errors="";
       $file_name = $_FILES['file']['name'];
       $file_size =$_FILES['file']['size'];
       $file_tmp =$_FILES['file']['tmp_name'];
@@ -9,18 +9,18 @@
       $extensions= array("docx","pdf","pptx");
       
       if(in_array($file_ext,$extensions)=== false){
-         $errors[]="extension not allowed, please choose a docx, pdf or pptx file.";
+         $errors="extension not allowed, please choose a docx, pdf or pptx file.";
       }
       
-      if($file_size >10000000){
-         $errors[]='File size cannot be more than 10 MB';
+      else if($file_size >10000000){
+         $errors='File size cannot be more than 10 MB';
       }
       
-      if(empty($errors)==true){
+      else if(empty($errors)==true){
          move_uploaded_file($file_tmp,"application/".$file_name);
          echo "Success";
       }else{
-         print_r($errors);
+         echo $errors;
       }
    }
 ?>
