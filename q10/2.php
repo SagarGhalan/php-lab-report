@@ -1,21 +1,21 @@
 <?php
 session_start();
-if(isset($_POST['mobile']))
+if(isset($_POST['submit']))
 {
     if($_POST['mobile'] == 'samsung')
     {
         $_SESSION['mprice']=10000;
-        $_SESSION['mname']=$_POST['mobile'];
+        $_SESSION['mname']= 'samsung';
     }
     if($_POST['mobile'] =='micromax')
     {
         $_SESSION['mprice']=12000;
-        $_SESSION['mname']=$_POST['mobile'];
+        $_SESSION['mname']='micromax';
     }
     if($_POST['mobile'] =='apple')
     {
         $_SESSION['mprice']=15000;
-        $_SESSION['mname']=$_POST['mobile'];
+        $_SESSION['mname']='apple';
     }
 }
 ?>
