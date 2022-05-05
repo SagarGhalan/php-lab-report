@@ -12,15 +12,15 @@
          $errors="extension not allowed, please choose a docx, pdf or pptx file.";
       }
       
-      else if($file_size >10000000){
+      if($file_size >10000000){
          $errors='File size cannot be more than 10 MB';
       }
       
-      else if(empty($errors)){
+      if(empty($errors)){
          move_uploaded_file($file_tmp,"application/".$file_name);
          echo "Success";
       }
-      if(isset($errors)){
+      else{
          echo $errors;
       }
    }
