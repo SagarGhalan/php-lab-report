@@ -9,7 +9,7 @@ if(!isset($_POST['submit']))
 }
 if(isset($_POST['submit']))
 {
-    $username = "sagar";
+    $username = "admin";
     $password = "1234";
 
     session_start();
