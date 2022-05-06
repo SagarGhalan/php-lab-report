@@ -5,20 +5,33 @@ if(isset($_POST['submit']))
     $name = $_POST['name'];
     $email = $_POST['email'];
     $gender = $_POST['gender'];
+    $error = array();
 
-    $sql = "INSERT INTO crud (name,email,gender) VALUES('$name','$email','$gender')";
+    
+    if(strlen($name)==0)
+    {
+        $error[] = "Name cannot be empty";
+    }
+    else if(strlen($email)==0)
+    {
+        $error[] = "E-mail cannot be empty";
+    }
+    else if(!preg_match("/^[a-zA-Z\d\s\._]+@[a-z\.]+\.[a-z]{2,3}$/",$email)){
+        $error[] = "Invalid Email format";
+    }
+    else{
+        $sql = "INSERT INTO crud (name,email,gender) VALUES('$name','$email','$gender')";
 
-    if(mysqli_query($conn,$sql))
-    {
-        header('location:view.php');
-    }
-    else
-    {
-        echo "Error in form submission";
-    }
+        if(mysqli_query($conn,$sql))
+        {
+            header('location:view.php');
+        }
+        else
+        {
+            echo "Error in form submission";
+        }
+    } 
 }
-
-
 
 ?>
 <html>
